@@ -1,0 +1,39 @@
+schema: spec-driven
+
+context: |
+  Language: Traditional Chinese (zh-TW)
+  All artifacts must be written in Traditional Chinese (zh-TW).
+  Keep OpenSpec structural headings and SHALL/MUST keywords in English.
+
+  Project: Hybrid TPA-Agent (Hybrid Technical & Price Action Agent)
+  A decision-support agent for short-term trading that combines:
+  deterministic supply & demand zone detection, XGBoost win-rate prediction,
+  and LLM reasoning grounded in a price-action knowledge base.
+  Course: NCHU AIoT final project (DIC3 proposal refactor with OpenSpec).
+
+  Core principles (see docs/proposal/00-core-definition.md):
+  - C1 Deterministic spatial structure: zones are computed by reproducible algorithms, never by the LLM.
+  - C2 ML win-rate estimation: probabilities come from a time-split, calibrated model.
+  - C3 Decoupled LLM reasoning: the LLM receives structured JSON and returns reasoning only; it never produces prices or probabilities.
+  - C4 Risk-first decision: APPROVED only when W >= 0.55 and RR >= 2.0.
+  - C5 Human-in-the-loop: the system never sends orders automatically.
+
+  Architecture: 4 layers, 8 modules (1.1 user preference, 1.2 data ingestion,
+  2.1 S&D zone engine, 2.2 win-rate engine, 3.1 knowledge base, 3.2 planner,
+  4.1 decision & risk engine, 4.2 report output).
+  Stack (planned): Python, pandas, XGBoost, an LLM API.
+  Evaluation: backtests must use only data available at decision time;
+  test periods should fall after the LLM's knowledge cutoff.
+
+rules:
+  proposal:
+    - State which of the 5 Cores (C1-C5) the change affects.
+    - State what is out of scope.
+  specs:
+    - Every numeric output (zones, W, SL, TP, RR, E, size) must have a requirement stating which capability produces it.
+  design:
+    - Record alternatives considered for each decision.
+    - Cite references from docs/proposal/references.md when a decision is evidence-based.
+  tasks:
+    - Each task states how to verify completion.
+    - Experiments must include transaction costs and a time-ordered train/test split.
