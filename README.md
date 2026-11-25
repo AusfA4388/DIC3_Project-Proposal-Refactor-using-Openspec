@@ -4,9 +4,10 @@
 
 > 國立中興大學 物聯網數據分析與應用 · 期末專題
 > DIC3：Project Proposal Refactor using OpenSpec
+> DIC4：Overleaf Draft for Conference using MCP and OpenSpec
 > 作者：侯佳旻（7114056115）｜小組成員：陳柏安、陳威碩、陳沐德、古富綿
 > 狀態：Proposal 階段（尚未實作）
-> AI 使用聲明：本次重構使用 Claude（Anthropic）協助文獻搜尋、文件撰寫與 OpenSpec 規格轉換；所有文獻已逐一查核出處，內容經本人檢視。
+> AI 使用聲明：本專題使用 Claude（Anthropic）協助文獻搜尋、文件與論文撰寫及 OpenSpec 規格轉換；所有文獻已逐一查核出處，內容經本人檢視。
 
 ---
 
@@ -20,6 +21,14 @@
 | 4 | Introduction 重構 | 依 A2Z G–L 重寫，補上數據與引用 | [`docs/proposal/01-introduction.md`](docs/proposal/01-introduction.md) |
 | 5 | Related Work 重構 | Domain 3 節 + AI 3 節、Article Summary Table（10 篇）、研究缺口四段式歸納 | [`docs/proposal/02-related-work.md`](docs/proposal/02-related-work.md) |
 | — | 參考文獻 | 18 篇，已逐一查核 | [`docs/proposal/references.md`](docs/proposal/references.md) |
+
+## DIC4 作業對照
+
+| # | 作業要求 | 完成內容 | 位置 |
+|---|---|---|---|
+| 1 | Overleaf draft for IEEE conference | IEEE 會議格式（IEEEtran）英文初稿，4 頁：Abstract、Introduction、Related Work、Design Principles、Proposed System（TikZ 架構圖、Algorithm 1）、Experimental Plan、Conclusion、18 篇參考文獻 | [`paper/main.tex`](paper/main.tex)、[`paper/main.pdf`](paper/main.pdf) |
+| — | MCP | 以 Overleaf MCP（`@mjyoo2/overleaf-mcp`）讓 Claude Desktop 讀寫 Overleaf 專案 | [`paper/OVERLEAF_MCP.md`](paper/OVERLEAF_MCP.md) |
+| 2 | OpenSpec on GitHub | 新增 change `add-ieee-conference-draft`：論文的 proposal、spec（8 條 requirement）、design、tasks | [`openspec/changes/add-ieee-conference-draft/`](openspec/changes/add-ieee-conference-draft/) |
 
 ## 核心概念
 
@@ -39,6 +48,7 @@
 .
 ├── README.md                      ← 本檔
 ├── DESIGN.md                      ← 系統設計入口（指向 openspec/）
+├── paper/                         ← DIC4：IEEE 會議論文初稿（LaTeX）與 Overleaf MCP 說明
 ├── docs/
 │   ├── proposal/                  ← DIC3 重構後的提案內容
 │   │   ├── 00-core-definition.md  ← A–F、5 Cores、3 Trade-offs、10 Details
@@ -52,6 +62,7 @@
 │   │   └── proposal-document/     ← 已歸檔的提案文件規格
 │   └── changes/
 │       ├── add-hybrid-tpa-agent-core/   ← 進行中：系統規格（8 capabilities）
+│       ├── add-ieee-conference-draft/   ← 進行中：DIC4 論文初稿
 │       └── archive/
 │           └── 2026-11-12-refactor-proposal-docs/  ← 已完成：本次文件重構
 └── .agents/skills/                ← OpenSpec 產生的 AI 助手指令
@@ -72,6 +83,7 @@ propose（寫 proposal / specs / design / tasks）
 |---|---|---|
 | `refactor-proposal-docs` | ✅ 已歸檔 | DIC3 文件重構；產生 `proposal-document` 規格 |
 | `add-hybrid-tpa-agent-core` | 🔄 進行中（0/27） | 系統八模組規格，期末實作依此進行 |
+| `add-ieee-conference-draft` | 🔄 進行中 | DIC4 會議論文初稿；待完成 Overleaf 上傳與 MCP 驗證 |
 
 常用指令：
 
